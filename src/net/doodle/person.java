@@ -15,4 +15,9 @@ public class person {
         this.ssn = ssn;
 
     }
+
+    public String getName(){
+        String name = fname + " " + lname;
+        return name;
+    }
 }

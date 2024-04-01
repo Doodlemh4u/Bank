@@ -7,27 +7,43 @@ import java.util.Scanner;
 public class bank {
 
     public person user;
-    public int maxDraw;
+    public double maxDraw;
     private List<profile> users = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
+    public String name;
+    public bank (String name, double maxDraw){
 
-    public bank (List<profile> users, int maxDraw){
-
-        this.users = users;
+        this.name = name;
         this.maxDraw = maxDraw;
+
     }
 
-    public void addUser(person user){
+    public void addUser(){
 
-       this.user = user;
+        String fN; String lN; int age; int ssn; double deposit;
 
-        account newAccount = new account(0);
+       System.out.println("What is your first name?");
+       fN = scanner.nextLine();
+        System.out.println("What is your last name?");
+       lN = scanner.nextLine();
+        System.out.println("What is your age?");
+       age = Integer.parseInt(scanner.nextLine());
+        System.out.println("What is your social security number");
+       ssn = Integer.parseInt(scanner.nextLine());
+        System.out.println("How much do you want to deposit? It must be at least $30.00.");
+        deposit = Double.parseDouble(scanner.nextLine());
 
-        users.add(new profile(user, newAccount));
+       if (deposit >= 30.00) {
 
-        for(profile person : users){
-            System.out.println(user);
-            System.out.println();
-        }
+           person user = new person(fN, lN, age, ssn);
+
+           account newAccount = new account(0);
+
+           users.add(new profile(user, newAccount));
+       }
+       else {
+           System.out.println("Your deposit is too small.");
+           }
+       }
     }
-}
+
