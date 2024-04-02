@@ -38,7 +38,7 @@ public class Main {
                 String choice = scanner.nextLine().replaceAll("\\s", "");
                 System.out.println("How much would you like to withdraw");
                 Double cash = Double.parseDouble(scanner.nextLine());
-                banks.get(choice).profile.account
+                banks.get(choice).
                 continue;
             }
             else if (input.equalsIgnoreCase("deposit")){

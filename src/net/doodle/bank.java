@@ -1,14 +1,14 @@
 package net.doodle;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class bank {
 
     public person user;
     public double maxDraw;
-    public List<profile> users = new ArrayList<>();
+    public Map users = new HashMap<String, profile>();
     private Scanner scanner = new Scanner(System.in);
     public String name;
     public bank (String name, double maxDraw){
@@ -32,18 +32,23 @@ public class bank {
        ssn = Integer.parseInt(scanner.nextLine());
         System.out.println("How much do you want to deposit? It must be at least $30.00.");
         deposit = Double.parseDouble(scanner.nextLine());
-
+        String userName = fN + lN;
        if (deposit >= 30.00) {
 
            person user = new person(fN, lN, age, ssn);
 
            account newAccount = new account(0);
 
-           users.add(new profile(user, newAccount));
+           users.put(userName, new profile(user, newAccount));
        }
        else {
            System.out.println("Your deposit is too small.");
            }
        }
+    public profile getProfile(){
+        System.out.println("What is your name?");
+        String uName = scanner.nextLine().replaceAll("\\s", "");
+        return users.get(uName);
     }
+}
 
