@@ -8,7 +8,7 @@ public class bank {
 
     public person user;
     public double maxDraw;
-    public Map users = new HashMap<String, profile>();
+    public Map<String, profile> users = new HashMap<>();
     private Scanner scanner = new Scanner(System.in);
     public String name;
     public bank (String name, double maxDraw){
@@ -45,9 +45,7 @@ public class bank {
            System.out.println("Your deposit is too small.");
            }
        }
-    public profile getProfile(){
-        System.out.println("What is your name?");
-        String uName = scanner.nextLine().replaceAll("\\s", "");
+    public profile getProfile(String uName){
         return users.get(uName);
     }
 }

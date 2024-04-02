@@ -11,10 +11,10 @@ public class account {
     }
 
     public void deposit(double amount){
-        total = total - amount;
+        total = total + amount;
     }
 
     public void withdraw(double amount){
-        total = total + amount;
+        total = total - amount;
     }
 }

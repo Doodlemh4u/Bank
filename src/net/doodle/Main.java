@@ -36,17 +36,34 @@ public class Main {
             else if (input.equalsIgnoreCase("withdraw")){
                 System.out.println("What bank would you like to withdraw from?");
                 String choice = scanner.nextLine().replaceAll("\\s", "");
+                System.out.println("What is your name?");
+                String uName = scanner.nextLine().replaceAll("\\s", "");
                 System.out.println("How much would you like to withdraw");
                 Double cash = Double.parseDouble(scanner.nextLine());
-                banks.get(choice).
+                if(banks.get(choice).getProfile(uName).account.total > 0 && banks.get(choice).getProfile(uName).account.total + banks.get(choice).maxDraw > cash) {
+                    banks.get(choice).getProfile(uName).account.withdraw(cash);
+                }
+                else {
+                    System.out.println("You can't afford this withdrawal.");
+                }
                 continue;
             }
             else if (input.equalsIgnoreCase("deposit")){
-
+                System.out.println("What bank would you like to deposit to?");
+                String choice = scanner.nextLine().replaceAll("\\s", "");
+                System.out.println("What is your name?");
+                String uName = scanner.nextLine().replaceAll("\\s", "");
+                System.out.println("How much would you like to deposit");
+                Double cash = Double.parseDouble(scanner.nextLine());
+                banks.get(choice).getProfile(uName).account.deposit(cash);
                 continue;
             }
             else if (input.equalsIgnoreCase("checktotal")){
-
+                System.out.println("What bank would you like to check?");
+                String choice = scanner.nextLine().replaceAll("\\s", "");
+                System.out.println("What is your name?");
+                String uName = scanner.nextLine().replaceAll("\\s", "");
+                System.out.println("Your balance is: " + banks.get(choice).getProfile(uName).account.total);
                 continue;
             }
             else if (input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("no")){
