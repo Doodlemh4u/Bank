@@ -8,7 +8,7 @@ public class bank {
 
     public person user;
     public double maxDraw;
-    private List<profile> users = new ArrayList<>();
+    public List<profile> users = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     public String name;
     public bank (String name, double maxDraw){
